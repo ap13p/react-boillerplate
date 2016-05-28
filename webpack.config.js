@@ -13,10 +13,10 @@ const getPath = (_path) => path.resolve(path.join(__dirname, _path))
 
 const config = {
   devtool: '#source-map',
-  context: getPath('app'),
+  context: getPath('src'),
   entry: {
     vendor: Object.keys(packageJson.dependencies),
-    app: [ getPath('app/index.js') ],
+    app: [ getPath('src/index.js') ],
   },
   output: {
     path: getPath('./dist/'),
@@ -36,7 +36,7 @@ const config = {
     new webpack.optimize.DedupePlugin(),
     new WebpackHtmlPlugin({
       title: 'React Boillerplate',
-      template: getPath('app/index.ejs'),
+      template: getPath('src/index.html'),
       minify: false,
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -66,7 +66,7 @@ const config = {
       '.css',
     ],
     root: [
-      getPath('app'),
+      getPath('src'),
     ],
   },
 };
