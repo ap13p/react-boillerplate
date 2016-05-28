@@ -1,30 +1,23 @@
 {
-    "presets": ["es2015", "react", "stage-2"],
-    "plugins": [
-        "add-module-exports",
-        ["transform-runtime", {
-          "polyfill": false,
-          "regenerator": true
+  "presets": ["es2015-loose", "react"],
+  "plugins": [
+    "add-module-exports",
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        ["react-transform", {
+          "transforms": [{
+            "transform": "react-transform-hmr",
+            "imports": ["react"],
+            "locals": ["module"]
+          }]
         }]
-    ],
-    "env": {
-        "development": {
-            "plugins": [
-                ["react-transform", {
-                    "transforms": [{
-                        "transform": "react-transform-hmr",
-                        "imports": ["react"],
-                        "locals": ["module"]
-                    }]
-                }]
-            ]
-        },
-        "production": {
-            "plugins": [
-                "transform-react-remove-prop-types",
-                "transform-react-constant-elements",
-                "transform-react-inline-elements"
-            ]
-        }
+      ]
+    },
+    "production": {
+      "presets": ["es2015-loose", "react", "react-optimize"]
     }
+  }
 }

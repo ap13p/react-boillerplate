@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createLogger from 'redux-logger'
 import reducers from 'reducers'
-import { routerMiddleware } from 'react-router-redux'
-import { hashHistory } from 'react-router'
 import thunk from 'redux-thunk'
 
 const isDevelopment = process.env.BUILD_ENV === 'development'
@@ -11,7 +9,6 @@ const isChromeDevtoolExtensionInstalled = (typeof window === 'object') &&
 
 const middlewares = compose(
   applyMiddleware(thunk),
-  applyMiddleware(routerMiddleware(hashHistory)),
   isDevelopment
     ? applyMiddleware(createLogger())
     : f => f,

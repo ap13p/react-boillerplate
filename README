@@ -3,11 +3,8 @@ Yet another reactjs boilerplate
 
 ## Feature and Library
 - reactjs
-- babel (es2015, stage-2, react, jsx-transform)
+- babel (es2015-loose, react, react-optimize)
 - redux
-- redux-saga
-- redux-batched-actions
-  To prevent react render multiple times on dispatching multiple action
 - redux-actions
   To simplify action & reducer creation
 - node-sass
@@ -22,46 +19,7 @@ Yet another reactjs boilerplate
 - offline-plugin
   For automaticaly generate appcache.manifest
 
-
-## Structure(s)
-|--+ components -> Stateless component(s) / dump component(s)
-|  |- component1.jsx
-|  |- component2.jsx
-|  \- component(n).jsx
-|
-|--+ containers -> Component that have access to redux actions
-|  |--+ app
-|  |  |- index.jsx
-|  |  |- reducer.js
-|  |  |- actions.js
-|  |  |- constants.js
-|  |  +- sagas.js
-|  |
-|  \--+ sidebar
-|     |- index.jsx
-|     |--+ reducers
-|     |  |- reducer1.js
-|     |  |- reducer2.js
-|     |  \- reducer(n).js
-|     |- actions.js
-|     |- constants.js
-|     \--+ sagas
-|        |- sagas1.js
-|        |- sagas(n).js
-|
-|--+ reducers -> Combined reducers
-|  \- index.js
-|
-|--+ sagas -> Combined sagas
-|  \- index.js
-|
-|--+ store -> Redux store related file(s)
-|  \- index.js
-|
-|- index.js -> Webpack entry point
-\- webpack.config.js
-
 ## Rules
 - Every javascript file that contain jsx must be named .jsx
-- Using jscs node-style
+- Using jscs airbnb-style
 - Using editorconfig
